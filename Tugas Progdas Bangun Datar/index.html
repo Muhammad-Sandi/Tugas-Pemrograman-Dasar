@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function bangunDatarComponent(pilih) {
+            if (pilih == "Persegi") {
+                var s1 = prompt("Masukkan Sisi")
+                var s2 = prompt("Masukkan Sisi")
+                var luas = s1 * s2
+                document.write("<b>Persegi</b> <br>")
+                document.write("Sisi : ", s1, "<br>")
+                document.write("Sisi : ", s2, "<br>")
+                document.write("Luas : ", luas, "<br>")
+            }
+            else if (pilih == "Persegi panjang") {
+                var p = prompt("Masukkan Panjang")
+                var l = prompt("Masukkan Lebar")
+                var luas = p * l
+                document.write("<b>Persegi Panjang</b> <br>")
+                document.write("Panjang : ", p, "<br>")
+                document.write("Lebar : ", l, "<br>")
+                document.write("Luas : ", luas, "<br>")
+            }
+            else if (pilih == "Segitiga") {
+                var a = prompt("Masukkan Alas")
+                var t = prompt("Masukkan Tinggi")
+                var setengah = 1 / 2
+                var luas = setengah * a * t
+                document.write("<b>Segitiga</b> <br>")
+                document.write("Setengah : ", setengah, "<br>")
+                document.write("Alas : ", a, "<br>")
+                document.write("Tinggi : ", t, "<br>")
+                document.write("Luas : ", luas, "<br>")
+
+            } else if (pilih === "Trapesium") {
+                var pss = prompt("Masukkan Jumlah Panjang Sisi Sejajar")
+                var t = prompt("Masukkan Tinggi")
+                var setengah = 1 / 2
+                var luas = setengah * pss * t
+                document.write("<b>Trapesium</b> <br>")
+                document.write("Setengah : ", setengah, "<br>")
+                document.write("Jumlah Panjang Sisi Sejajar : ", pss, "<br>")
+                document.write("Tinggi : ", t, "<br>")
+                document.write("Luas : ", luas)
+            } else {
+                alert("Mohon Maaf, Bangun Datar Tidak Tersedia.")
+            }
+        }
+
+        function bangunDatar() {
+            var bd;
+            bd = prompt("Mau Cari Luas Apa?, Ada Persegi, Persegi panjang, Segitiga, Trapesium (Penulisan Huruf Depan Besar)");
+            bangunDatarComponent(bd)
+        }
+
+        bangunDatar();
+    </script>
+</body>
+
+</html>
