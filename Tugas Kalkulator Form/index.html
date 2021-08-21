@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Masukkan Angka Ke 1" id="angkake1">
+    <input type="text" placeholder="Masukkan Angka Ke 2" id="angkake2">
+    
+    <button onclick="hitungTambah()">Hitung</button>
+
+    <input type="text" placeholder="Hasil" id="hasil">
+
+
+    <script>
+        function hitungTambah() {
+            var angka1 = document.getElementById('angkake1').value
+            var angka2 = document.getElementById('angkake2').value
+
+            var a = Number(angka1)
+            var b = Number(angka2)
+
+            var hasil = a+b
+
+            document.getElementById('hasil').value = hasil
+        }
+    </script>
+</body>
+</html>
