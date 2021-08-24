@@ -13,7 +13,7 @@
     <title>Data Siswa</title>
     <style>
         .container {
-            width: 800px;
+            width: 2000px;
         }
     </style>
 </head>
@@ -22,7 +22,7 @@
     <div class="container">
         <div class="form-group">
             <label for="namasiswa">Nama Siswa</label>
-            <input type="teks" class="form-control" id="id_namasiswa">
+            <input type="teks" class="form-control" id="id_namasiswa" placeholder="Masukkan Nama Anda">
         </div>
 
         <label for="kelas">Kelas</label>
@@ -33,7 +33,33 @@
         </select>
 
         <label for="alamat">Alamat</label>
-        <textarea class="form-control" id="id_alamat" rows="3"></textarea>
+        <textarea class="form-control" id="id_alamat" placeholder="Masukkan Alamat Anda" rows="3"></textarea>
+
+        <div class="form-group">
+            <label for="namasiswa">Email</label>
+            <input type="email" class="form-control" id="id_email" placeholder="Masukkan Email Anda">
+        </div>
+
+        <div class="form-group">
+            <label for="namasiswa">No Hp</label>
+            <input type="number" class="form-control" id="id_nohp" placeholder="Masukkan No Hp Anda">
+        </div>
+
+        <label for="jeniskelamin">Jenis Kelamin</label>
+        <select class="form-control" id="id_jeniskelamin">
+            <option value="Laki-Laki">Laki-Laki</option>
+            <option value="Perempuan">Perempuan</option>
+        </select>
+
+        <label for="jeniskelamin">Agama</label>
+        <select class="form-control" id="id_agama">
+            <option value="Islam">Islam</option>
+            <option value="Protestan">Protestan</option>
+            <option value="Katolik">Katolik</option>
+            <option value="Hindu">Hindu</option>
+            <option value="Buddha">Buddha</option>
+            <option value="Khonghucu">Khonghucu</option>
+        </select>
 
         <button class="btn btn-primary mt-4" onclick="add()">Simpan</button>
 
@@ -44,6 +70,10 @@
                     <th scope="col">Nama Siswa</th>
                     <th scope="col">Kelas</th>
                     <th scope="col">Alamat</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">No Hp</th>
+                    <th scope="col">Jenis Kelamin</th>
+                    <th scope="col">Agama</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -57,7 +87,11 @@
     <script>
         var namasiswa = ['Sandi', 'Rendi', 'Majiid', 'Nova', 'Faiz', 'Rohmadani']
         var kelas = ['XII', 'XII', 'XII', 'XII', 'XII', 'XII']
-        var alamat = ['Depok', 'Depok', 'Jakarta', 'Bogor', 'Tanggerang', 'Bekasi']
+        var alamat = ['Depok', 'Depok', 'Jakarta', 'Bogor', 'Jakarta', 'Bekasi']
+        var email = ['sandi@gmail.com', 'rendi@gmail.com', 'majiid@gmail.com', 'nova7@gmail.com', 'faiz0@gmail.com', 'dani1@gmail.com']
+        var nohp = [ '0878 999', '0878 763', '0878 912', '0878 123', '0878 134', '0878 312']
+        var jeniskelamin = ['Laki-Laki','Laki-Laki','Laki-Laki','Laki-Laki','Laki-Laki','Laki-Laki']
+        var agama = ['Islam', 'Islam', 'Islam', 'Islam', 'Islam', 'Islam']
 
         var tampil = document.getElementById("tampildata")
 
@@ -72,6 +106,10 @@
                     "<td>"+namasiswa[i]+"</td>"+
                     "<td>"+kelas[i]+"</td>"+
                     "<td>"+alamat[i]+"</td>"+
+                    "<td>"+email[i]+"</td>"+
+                    "<td>"+nohp[i]+"</td>"+
+                    "<td>"+jeniskelamin[i]+"</td>"+
+                    "<td>"+agama[i]+"</td>"+
                     "<td>"+
                     "<button class='btn btn-warning'onclick='edit("+i+")'>Edit</button>"+
                     "<button class='btn btn-danger'onclick='hapus("+i+")'>Hapus</button>"+
@@ -86,10 +124,18 @@
             var namabaru = document.getElementById('id_namasiswa').value
             var kelasbaru = document.getElementById('id_kelas').value
             var alamatbaru = document.getElementById('id_alamat').value
+            var emailbaru = document.getElementById('id_email').value
+            var nohpbaru = document.getElementById('id_nohp').value
+            var jeniskelaminbaru = document.getElementById('id_jeniskelamin').value
+            var agamabaru = document.getElementById('id_agama').value
 
             namasiswa.push(namabaru)
             kelas.push(kelasbaru)
             alamat.push(alamatbaru)
+            email.push(emailbaru)
+            nohp.push(nohpbaru)
+            jeniskelamin.push(jeniskelaminbaru)
+            agama.push(agamabaru)
 
             showData()
         }
@@ -98,10 +144,18 @@
             var namabaru = document.getElementById('id_namasiswa').value
             var kelasbaru = document.getElementById('id_kelas').value
             var alamatbaru = document.getElementById('id_alamat').value
+            var emailbaru = document.getElementById('id_email').value
+            var nohpbaru = document.getElementById('id_nohp').value
+            var jeniskelaminbaru = document.getElementById('id_jeniskelamin').value
+            var agamabaru = document.getElementById('id_agama').value
 
             namasiswa.splice(i, 1)
             kelas.splice(i, 1)
             alamat.splice(i, 1)
+            email.splice(i, 1)
+            nohp.splice(i, 1)
+            jeniskelamin.splice(i, 1)
+            agama.splice(i, 1)
 
             showData()
         }
@@ -115,6 +169,18 @@
 
             var edit = prompt("Masukkan Alamat Baru Anda", alamat[id])
             alamat[id] = edit;
+
+            var edit = prompt("Masukkan Email Baru Anda", email[id])
+            email[id] = edit;
+
+            var edit = prompt("Masukkan No Hp Baru Anda", nohp[id])
+            nohp[id] = edit;
+
+            var edit = prompt("Masukkan Jenis Kelamin Baru Anda", jeniskelamin[id])
+            jeniskelamin[id] = edit;
+
+            var edit = prompt("Masukkan Jenis Agama Baru Anda", agama[id])
+            agama[id] = edit;
 
             showData()
         }
