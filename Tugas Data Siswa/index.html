@@ -19,7 +19,25 @@
 </head>
 
 <body>
+
     <div class="container">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://i.ytimg.com/vi/gUAWuLMLaVE/maxresdefault.jpg" class="d-block w-100" alt="..."
+                        height="15px">
+                </div>
+                <div class="carousel-item">
+                    <img src="http://1.bp.blogspot.com/-mEOJMYodLx4/U_FjyZAsPtI/AAAAAAAAA7E/5KT9y8hcNTw/s1600/biru.gif"
+                        class="d-block w-100" alt="..." height="15px">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://ecs7.tokopedia.net/img/cache/700/product-1/2017/11/19/0/0_5ae95f14-0cb4-49a2-91fd-63bc1dc763d5_720_668.jpg"
+                        class="d-block w-100" alt="..." height="15px">
+                </div>
+            </div>
+        </div>
+
         <div class="form-group">
             <label for="namasiswa">Nama Siswa</label>
             <input type="teks" class="form-control" id="id_namasiswa" placeholder="Masukkan Nama Anda">
@@ -100,8 +118,8 @@
         var jurusan = ['RPL', 'RPL', 'RPL', 'RPL', 'RPL', 'RPL']
         var alamat = ['Depok', 'Depok', 'Jakarta', 'Bogor', 'Jakarta', 'Bekasi']
         var email = ['sandi@gmail.com', 'rendi@gmail.com', 'majiid@gmail.com', 'nova7@gmail.com', 'faiz0@gmail.com', 'dani1@gmail.com']
-        var nohp = [ '0878 911 666', '0878 763 123', '0878 912 124 ', '0878 125 184', '0878 133 325', '0878 123 321']
-        var jeniskelamin = ['Laki-Laki','Laki-Laki','Laki-Laki','Laki-Laki','Laki-Laki','Laki-Laki']
+        var nohp = ['0878 911 666', '0878 763 123', '0878 912 124 ', '0878 125 184', '0878 133 325', '0878 123 321']
+        var jeniskelamin = ['Laki-Laki', 'Laki-Laki', 'Laki-Laki', 'Laki-Laki', 'Laki-Laki', 'Laki-Laki']
         var agama = ['Islam', 'Islam', 'Islam', 'Islam', 'Islam', 'Islam']
 
         var tampil = document.getElementById("tampildata")
@@ -112,20 +130,20 @@
             for (i = 0; i < namasiswa.length; i++) {
                 var nodata = i + 1
 
-                tampil.innerHTML += "<tr>"+
-                    "<th>"+nodata+"</th>"+
-                    "<td>"+namasiswa[i]+"</td>"+
-                    "<td>"+kelas[i]+"</td>"+
-                    "<td>"+jurusan[i]+"</td>"+
-                    "<td>"+alamat[i]+"</td>"+
-                    "<td>"+email[i]+"</td>"+
-                    "<td>"+nohp[i]+"</td>"+
-                    "<td>"+jeniskelamin[i]+"</td>"+
-                    "<td>"+agama[i]+"</td>"+
-                    "<td>"+
-                    "<button class='btn btn-warning'onclick='edit("+i+")'>Edit</button>"+
-                    "<button class='btn btn-danger'onclick='hapus("+i+")'>Hapus</button>"+
-                    "</td>"+
+                tampil.innerHTML += "<tr>" +
+                    "<th>" + nodata + "</th>" +
+                    "<td>" + namasiswa[i] + "</td>" +
+                    "<td>" + kelas[i] + "</td>" +
+                    "<td>" + jurusan[i] + "</td>" +
+                    "<td>" + alamat[i] + "</td>" +
+                    "<td>" + email[i] + "</td>" +
+                    "<td>" + nohp[i] + "</td>" +
+                    "<td>" + jeniskelamin[i] + "</td>" +
+                    "<td>" + agama[i] + "</td>" +
+                    "<td>" +
+                    "<button class='btn btn-warning'onclick='edit(" + i + ")'>Edit</button>" +
+                    "<button class='btn btn-danger'onclick='hapus(" + i + ")'>Hapus</button>" +
+                    "</td>" +
                     "</tr>"
             }
         }
@@ -154,7 +172,35 @@
             showData()
         }
 
-        function hapus(i) {
+        function edit(edt) {
+            var edit = prompt("Masukkan Nama Baru Anda")
+            namasiswa[edt] = edit;
+
+            var edit = prompt("Masukkan Kelas Baru Anda")
+            kelas[edt] = edit;
+
+            var edit = prompt("Masukkan Jurusan Baru Anda")
+            jurusan[edt] = edit;
+
+            var edit = prompt("Masukkan Alamat Baru Anda")
+            alamat[edt] = edit;
+
+            var edit = prompt("Masukkan Email Baru Anda")
+            email[edt] = edit;
+
+            var edit = prompt("Masukkan No Hp Baru Anda")
+            nohp[edt] = edit;
+
+            var edit = prompt("Masukkan Jenis Kelamin Baru Anda")
+            jeniskelamin[edt] = edit;
+
+            var edit = prompt("Masukkan Agama Baru Anda")
+            agama[edt] = edit;
+
+            showData()
+        }
+
+        function hapus(del) {
             var namabaru = document.getElementById('id_namasiswa').value
             var kelasbaru = document.getElementById('id_kelas').value
             var jurusanbaru = document.getElementById('id_jurusan').value
@@ -164,45 +210,24 @@
             var jeniskelaminbaru = document.getElementById('id_jeniskelamin').value
             var agamabaru = document.getElementById('id_agama').value
 
-            namasiswa.splice(i, 1)
-            kelas.splice(i, 1)
-            jurusan.splice(i, 1)
-            alamat.splice(i, 1)
-            email.splice(i, 1)
-            nohp.splice(i, 1)
-            jeniskelamin.splice(i, 1)
-            agama.splice(i, 1)
+            if (confirm("Apakah anda yakin ingin menghapus ini ?")) {
+
+            } else {
+                tetep_ada
+            }
+
+            namasiswa.splice(del, 1)
+            kelas.splice(del, 1)
+            jurusan.splice(del, 1)
+            alamat.splice(del, 1)
+            email.splice(del, 1)
+            nohp.splice(del, 1)
+            jeniskelamin.splice(del, 1)
+            agama.splice(del, 1)
 
             showData()
         }
 
-        function edit(id) {
-            var edit = prompt("Masukkan Nama Baru Anda", namasiswa[id])
-            namasiswa[id] = edit;
-
-            var edit = prompt("Masukkan Kelas Baru Anda", kelas[id])
-            kelas[id] = edit;
-
-            var edit = prompt("Masukkan Jurusan Baru Anda", jurusan[id])
-            jurusan[id] = edit;
-
-            var edit = prompt("Masukkan Alamat Baru Anda", alamat[id])
-            alamat[id] = edit;
-
-            var edit = prompt("Masukkan Email Baru Anda", email[id])
-            email[id] = edit;
-
-            var edit = prompt("Masukkan No Hp Baru Anda", nohp[id])
-            nohp[id] = edit;
-
-            var edit = prompt("Masukkan Jenis Kelamin Baru Anda", jeniskelamin[id])
-            jeniskelamin[id] = edit;
-
-            var edit = prompt("Masukkan Jenis Agama Baru Anda", agama[id])
-            agama[id] = edit;
-
-            showData()
-        }
     </script>
 
 
