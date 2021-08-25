@@ -32,6 +32,15 @@
             <option value="XII">XII</option>
         </select>
 
+        <label for="jurusan">Jurusan</label>
+        <select class="form-control" id="id_jurusan">
+            <option value="TKJ">TKJ</option>
+            <option value="MM">MM</option>
+            <option value="RPL">RPL</option>
+            <option value="BC">BC</option>
+            <option value="TEI">TEI</option>
+        </select>
+
         <label for="alamat">Alamat</label>
         <textarea class="form-control" id="id_alamat" placeholder="Masukkan Alamat Anda" rows="3"></textarea>
 
@@ -69,6 +78,7 @@
                     <th scope="col">No</th>
                     <th scope="col">Nama Siswa</th>
                     <th scope="col">Kelas</th>
+                    <th scope="col">Jurusan</th>
                     <th scope="col">Alamat</th>
                     <th scope="col">Email</th>
                     <th scope="col">No Hp</th>
@@ -87,6 +97,7 @@
     <script>
         var namasiswa = ['Sandi', 'Rendi', 'Majiid', 'Nova', 'Faiz', 'Rohmadani']
         var kelas = ['XI', 'XI', 'XI', 'XI', 'XI', 'XI']
+        var jurusan = ['RPL', 'RPL', 'RPL', 'RPL', 'RPL', 'RPL']
         var alamat = ['Depok', 'Depok', 'Jakarta', 'Bogor', 'Jakarta', 'Bekasi']
         var email = ['sandi@gmail.com', 'rendi@gmail.com', 'majiid@gmail.com', 'nova7@gmail.com', 'faiz0@gmail.com', 'dani1@gmail.com']
         var nohp = [ '0878 911 666', '0878 763 123', '0878 912 124 ', '0878 125 184', '0878 133 325', '0878 123 321']
@@ -105,6 +116,7 @@
                     "<th>"+nodata+"</th>"+
                     "<td>"+namasiswa[i]+"</td>"+
                     "<td>"+kelas[i]+"</td>"+
+                    "<td>"+jurusan[i]+"</td>"+
                     "<td>"+alamat[i]+"</td>"+
                     "<td>"+email[i]+"</td>"+
                     "<td>"+nohp[i]+"</td>"+
@@ -123,6 +135,7 @@
         function add() {
             var namabaru = document.getElementById('id_namasiswa').value
             var kelasbaru = document.getElementById('id_kelas').value
+            var jurusanbaru = document.getElementById('id_jurusan').value
             var alamatbaru = document.getElementById('id_alamat').value
             var emailbaru = document.getElementById('id_email').value
             var nohpbaru = document.getElementById('id_nohp').value
@@ -131,6 +144,7 @@
 
             namasiswa.push(namabaru)
             kelas.push(kelasbaru)
+            jurusan.push(jurusanbaru)
             alamat.push(alamatbaru)
             email.push(emailbaru)
             nohp.push(nohpbaru)
@@ -143,6 +157,7 @@
         function hapus(i) {
             var namabaru = document.getElementById('id_namasiswa').value
             var kelasbaru = document.getElementById('id_kelas').value
+            var jurusanbaru = document.getElementById('id_jurusan').value
             var alamatbaru = document.getElementById('id_alamat').value
             var emailbaru = document.getElementById('id_email').value
             var nohpbaru = document.getElementById('id_nohp').value
@@ -151,6 +166,7 @@
 
             namasiswa.splice(i, 1)
             kelas.splice(i, 1)
+            jurusan.splice(i, 1)
             alamat.splice(i, 1)
             email.splice(i, 1)
             nohp.splice(i, 1)
@@ -166,6 +182,9 @@
 
             var edit = prompt("Masukkan Kelas Baru Anda", kelas[id])
             kelas[id] = edit;
+
+            var edit = prompt("Masukkan Jurusan Baru Anda", jurusan[id])
+            jurusan[id] = edit;
 
             var edit = prompt("Masukkan Alamat Baru Anda", alamat[id])
             alamat[id] = edit;
