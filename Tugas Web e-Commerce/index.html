@@ -12,9 +12,8 @@
 
     <title>Belanja Aja!</title>
     <style>
-        .jumbotron {
+        .carousel-item {
             height: 300px;
-            background-image: url(https://images.pexels.com/photos/5698851/pexels-photo-5698851.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
             background-size: cover;
             background-position-y: 666px;
             background-color: rgb(26, 26, 26);
@@ -23,16 +22,43 @@
         .judulist {
             height: 41px;
         }
+
+        body {
+            background-color: bisque;
+        }
     </style>
 </head>
 
 <body>
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4"><b></b></h1>
-            <p class="lead"><b></b></p>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://yarnspindle.com/wp-content/uploads/2019/11/kombed-1000.jpg" class="d-block w-100"
+                    alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://mallonlineindonesia.com/wp-content/uploads/2015/12/Bahan-Kaos.jpg"
+                    class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://wevatextile.com/wp-content/uploads/2019/06/kain-kiloan-preview-1.jpg"
+                    class="d-block w-100" alt="...">
+            </div>
         </div>
-    </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div><br>
 
 
     <div class="container">
@@ -59,7 +85,8 @@
                     </tbody>
                 </table>
 
-                <button type="button" class="btn btn-primary mt-3 btn-block">Bayar</button>
+                <button type="button" class="btn btn-primary mt-3 btn-block"
+                    onclick="bayaritem(' + i + ')">Bayar</button>
 
             </div>
 
@@ -71,12 +98,15 @@
     </div>
 
     <script>
-        var namabarang = ['Baju Koko', 'Kemeja Resort', 'Kemeja Slim Fit']
-        var hargabarang = [200000, 350000, 250000]
+        var namabarang = ['Baju Koko', 'Kemeja Resort', 'Kemeja Slim Fit', 'Tshirt Rimosa', 'Tshirt Clurry', 'Tshirt Persita']
+        var hargabarang = [200000, 350000, 250000, 170000, 170000, 150000]
         var gambarbarang = [
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6TMCaWhphJxFk-1yD3YbiQk3q56z6f1B2eJq_WbMoNXlBA3bySFdkMF63W0-qn1sfS_Y&usqp=CAU",
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//104/MTA-9681296/h-m_kemeja_h-m_patterned_resort_shirt_multicolor_print_original_hnm_pantai_full02_qxbn8hx4.jpg", 
-            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//85/MTA-5913200/h-m_kemeja_kerja_kantor_hnm_easy_iron_light_blue_shirt_original_slimfit_full02_ee7fdmqp.jpg"
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//104/MTA-9681296/h-m_kemeja_h-m_patterned_resort_shirt_multicolor_print_original_hnm_pantai_full02_qxbn8hx4.jpg",
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//85/MTA-5913200/h-m_kemeja_kerja_kantor_hnm_easy_iron_light_blue_shirt_original_slimfit_full02_ee7fdmqp.jpg",
+            "https://cf.shopee.co.id/file/43b4aba3650f8bb6ba713b3245742617",
+            "https://cf.shopee.co.id/file/12e1443d92a0d6f20726df77dc47d400",
+            "https://cf.shopee.co.id/file/86d462317df5887c54ce598583859082_tn"
         ]
 
         var listproduk = document.getElementById('listproduk')
@@ -92,7 +122,7 @@
                     '<img src=' + gambarbarang[i] + ' alt="...">' +
                     ' <div class="card-body">' +
                     '<h5 class="card-title">' + namabarang[i] + '</h5>' +
-                    '<p class="card-text">Rp. '+ hargabarang[i] + '</p>' +
+                    '<p class="card-text">Rp. ' + hargabarang[i] + '</p>' +
                     ' <a href="#" class="btn btn-primary" onclick="addlistitem(' + i + ')">Beli</a>' +
                     ' </div>' +
                     ' </div>'
@@ -100,6 +130,7 @@
         }
 
         function addlistitem(id) {
+
             namabarang_keranjang.push(namabarang[id])
             hargabarang_keranjang.push(hargabarang[id])
 
@@ -128,24 +159,24 @@
                     '</div>' +
                     '</div>'
 
-                    hargatotal = hargabarang_keranjang[i]+hargatotal
+                hargatotal = hargabarang_keranjang[i] + hargatotal
 
-                    
 
-                    if(totalbayar>600000){
-                        discount = totalbayar * 0.05
-                    }else{
-                        discount = 0
-                    }
-                    totalbayar = hargatotal-discount
 
-                    
-                    pajak = totalbayar * 0.1
+                if (totalbayar > 600000) {
+                    discount = totalbayar * 0.05
+                } else {
+                    discount = 0
+                }
+                totalbayar = hargatotal - discount
 
-                    var totalbelanja = totalbayar - pajak
-                    tampilanpajak.innerHTML = pajak
-                    tampilandiscount.innerHTML = discount
-                    tampilantotalbayar.innerHTML = totalbelanja
+
+                pajak = totalbayar * 0.1
+
+                var totalbelanja = totalbayar - pajak
+                tampilanpajak.innerHTML = pajak
+                tampilandiscount.innerHTML = discount
+                tampilantotalbayar.innerHTML = totalbelanja
             }
         }
         showListProduk()
@@ -161,6 +192,15 @@
             hargabarang_keranjang.splice(id, 1)
 
             showlistkeranjang()
+        }
+        function bayaritem(id) {
+            if (confirm("Anda anda yakin ingin membayar ini ?")) {
+
+            } else {
+                tetep_disini
+            }
+            var newtab = window.open('Web Pembayaran', '_blank')
+
         }
 
     </script>
