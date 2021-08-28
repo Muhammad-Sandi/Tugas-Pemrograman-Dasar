@@ -79,15 +79,67 @@
                             <td>Rp. <span id="pajak"></span></td>
                         </tr>
                         <tr class="bg-dark text-white">
-                            <td>Total Bayar (10%)</td>
+                            <td>Total Bayar</td>
                             <td>Rp. <span id="totalbayar"></span></td>
                         </tr>
                     </tbody>
                 </table>
 
-                <button type="button" class="btn btn-primary mt-3 btn-block"
-                    onclick="bayaritem(' + i + ')">Bayar</button>
+                <button type="button" class="btn btn-primary mt-3 btn-block" data-toggle="modal"
+                    data-target="#staticBackdrop">
+                    Bayar
+                </button>
 
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Pembayaran</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+
+                                <script>
+
+                                </script>
+
+                                <label for="namasiswa">Nama Pembeli</label>
+                                <input type="teks" class="form-control" id="id_namasiswa"
+                                    placeholder="Masukkan Nama Anda">
+
+                                <label for="kelas">Metode Pembayaran</label>
+                                <select class="form-control">
+                                    <option value="BCA">BCA</option>
+                                    <option value="MANDIRI">MANDIRI</option>
+                                    <option value="CIMB NIAGA">CIMB NIAGA</option>
+                                    <option value="DANA">DANA</option>
+                                    <option value="OVO">OVO</option>
+                                    <option value="GOPAY">GOPAY</option>
+                                    <option value="Cash On Delivery">Cash On Delivery</option><br>
+                                </select>
+
+                                <label for="alamat">Alamat</label>
+                                <textarea class="form-control" id="id_alamat" placeholder="Masukkan Alamat Anda"
+                                    rows="3"></textarea>
+
+                                <label for="namasiswa">No Hp</label>
+                                <input type="number" class="form-control" id="id_nohp"
+                                    placeholder="Masukkan No Hp Anda">
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary"
+                                    onclick="selesaibayar(' + i + ')">Selesaikan Pembayaran</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="col-8" id="listproduk">
@@ -193,16 +245,17 @@
 
             showlistkeranjang()
         }
-        function bayaritem(id) {
-            if (confirm("Anda anda yakin ingin membayar ini ?")) {
+
+        function selesaibayar(id) {
+            if (confirm("Apakah anda yakin ingin membayar ini ?")) {
 
             } else {
                 tetep_disini
             }
-            var newtab = window.open('Web Pembayaran', '_blank')
+            var newtab = open('Selesai.html')
 
         }
-
+        
     </script>
 
     <!-- Optional JavaScript; choose one of the two! -->
